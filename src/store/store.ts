@@ -1,10 +1,16 @@
 import { combineReducers, applyMiddleware, createStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
+import { Location } from '../interfaces/location';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface GlobalState {}
+import currentLocationReducer from './current-location/reducer';
 
-const combinedReducer = combineReducers<GlobalState>({});
+export interface GlobalState {
+  currentLocationState: Location;
+}
+
+const combinedReducer = combineReducers<GlobalState>({
+  currentLocationState: currentLocationReducer,
+});
 
 const bindMiddleware = (middleware: any) => {
   if (process.env.NODE_ENV !== 'production') {
