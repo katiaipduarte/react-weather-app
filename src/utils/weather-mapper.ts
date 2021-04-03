@@ -9,9 +9,7 @@ import { Weather } from '../interfaces/weather';
  */
 export const mapToWeatherInterface = (data: WeatherResponse): Weather => {
   const mapped: Weather = {
-    city: data.name,
-    country: data.sys.country,
-    coord: data.coord,
+    location: `${data.name}, ${data.sys.country}`,
     temp: data.main,
     description: data.weather.length === 0 ? 'No information' : data.weather[0].description,
   };

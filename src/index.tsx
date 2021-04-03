@@ -11,6 +11,7 @@ import './index.css';
 import City from './pages/City';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import { GlobalStyle } from './styles';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -22,6 +23,7 @@ ReactDOM.render(
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
+      <GlobalStyle />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),

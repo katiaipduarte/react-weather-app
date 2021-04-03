@@ -1,10 +1,7 @@
-import { Location } from './location';
 import { Temperature } from './temperature';
 
 export type Weather = {
-  city: string;
-  country: string;
-  coord: Location;
+  location: string;
   temp: Temperature;
   description: string;
 };
