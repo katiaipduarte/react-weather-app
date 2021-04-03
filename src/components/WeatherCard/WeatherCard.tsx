@@ -35,7 +35,7 @@ const WeatherCard = (props: Props) => {
       <>
         {Object.entries(temp).map((entry: [string, number], i: number) => {
           const label: string = entry[0].replace('temp', 'temperature').replace('_', ' ');
-          const symbol: string = entry[0].includes('temp') ? '\u00b0C' : '';
+          const symbol: string = entry[0].includes('temp') || entry[0] === 'feels_like' ? '\u00b0C' : '';
 
           return (
             <React.Fragment key={i}>
