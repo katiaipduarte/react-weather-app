@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import ForecastList from '../components/ForecastList/ForecastList';
-import WeatherCard from '../components/WeatherCard/WeatherCard';
+import CurrentWeatherInfo from '../components/CurrentWeatherInfo/CurrentWeatherInfo';
 import { Location } from '../interfaces/location';
 import { Weather } from '../interfaces/weather';
 import LocationProvider from '../lib/location-provider';
@@ -30,7 +30,7 @@ const Home = () => {
     <>
       {weather !== undefined && (
         <>
-          <WeatherCard weather={weather.today} />
+          <CurrentWeatherInfo weather={weather.today} />
           <ForecastList forecast={weather.forecast} />
         </>
       )}

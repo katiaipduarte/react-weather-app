@@ -22,7 +22,18 @@ export const GlobalStyle = createGlobalStyle`
             h1, h2, h3, h4, h5, h6, p {
                 color: white;
                 cursor: default;
-                font-weight: bold;
+            }
+
+            h1 {
+                font-size: 35rem;
+            }
+
+            h2 {
+                font-size: 25rem;
+            }
+
+            h3 {
+                font-size: 20rem;
             }
 
             svg {

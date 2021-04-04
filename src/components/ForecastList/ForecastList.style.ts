@@ -9,7 +9,8 @@ export const List = styled.section`
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   max-width: 50%;
-  padding: 10rem 20rem;
+  padding: 10rem;
+  margin-top: 30rem;
 
   .flex-forecast {
     display: flex;
