@@ -30,7 +30,7 @@ const convertToCurrentWeather = (data: CurrentDto): CurrentWeather => {
     weather_icon: data.weather.length === 0 ? '' : getWeatherIcon(data.weather[0].main),
     weather_description: data.weather.length === 0 ? '' : data.weather[0].description,
     humidity: `${data.humidity}%`,
-    wind: `${findWindDirection(data.wind_deg)} ${data.wind_speed} km/h`,
+    wind: `${findWindDirection(data.wind_deg)} ${Math.round(data.wind_speed * 3.6)} km/h`,
   };
 };
 

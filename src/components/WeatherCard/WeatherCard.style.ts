@@ -12,7 +12,6 @@ export const WeatherCardContainer = styled.div`
     border-bottom: solid 2rem rgba(255, 255, 255, 0.06);
     padding: 20rem 0;
     font-weight: 400;
-    text-transform: capitalize;
 
     span {
       color: #fff;

@@ -14,5 +14,5 @@ export type CurrentDto = {
   visibility: number;
   weather: WeatherDto[];
   wind_deg: number;
-  wind_speed: number;
+  wind_speed: number; //the wind speed is in m/s, to use km/h we need to multiply by 3.6
 };
