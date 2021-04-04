@@ -88,31 +88,31 @@ const findWindDirection = (deg: number): string => {
 const getWeatherIcon = (description: string): string => {
   let weatherIcon = '';
 
-  switch (description.toLowerCase()) {
+  switch (description) {
     case 'Thunderstorm':
-      weatherIcon = 'FaBolt';
+      weatherIcon = 'bolt';
       break;
     case 'Drizzle':
-      weatherIcon = 'FaCloudRain';
+      weatherIcon = 'cloud-rain';
       break;
     case 'Rain':
-      weatherIcon = 'FaCloudShowersHeavy';
+      weatherIcon = 'cloud-showers-heavy';
       break;
     case 'Snow':
-      weatherIcon = 'FaSnowflake';
+      weatherIcon = 'snowflake';
       break;
     case 'Clear':
-      weatherIcon = 'FaSun';
+      weatherIcon = 'sun';
       break;
-    case 'Clouds  ':
-      weatherIcon = 'FaCloudSun';
+    case 'Clouds':
+      weatherIcon = 'cloud';
       break;
     case 'Smoke':
     case 'Fog':
     case 'Mist':
     case 'Haze':
     case 'Dust':
-      weatherIcon = 'FaSmog';
+      weatherIcon = 'smog';
       break;
     default:
       break;

@@ -3,6 +3,17 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faBolt,
+  faCloud,
+  faCloudRain,
+  faCloudShowersHeavy,
+  faSmog,
+  faSnowflake,
+  faSun,
+} from '@fortawesome/free-solid-svg-icons';
+
 import store from './store/store';
 import * as serviceWorker from './serviceWorker';
 
@@ -28,6 +39,8 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root'),
 );
+
+library.add(faSun, faCloudShowersHeavy, faCloud, faSmog, faCloudRain, faBolt, faSnowflake);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

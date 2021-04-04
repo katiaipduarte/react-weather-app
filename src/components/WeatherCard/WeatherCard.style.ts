@@ -3,8 +3,6 @@ import styled from 'styled-components';
 export const WeatherCardContainer = styled.div`
   font-weight: 200;
   letter-spacing: 2px;
-  background-color: #2c3e50;
-  height: 100vh;
 
   p {
     font-size: 20rem;
@@ -14,7 +12,6 @@ export const WeatherCardContainer = styled.div`
     font-weight: 400;
 
     span {
-      color: #fff;
       font-weight: 200;
     }
   }
