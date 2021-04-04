@@ -8,12 +8,12 @@ import { updateCurrentLocation } from '../store/current-location/action';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { getWeatherByCoords } = WeatherProvider();
-  const [currLocationWeather, setCurrLocationWeather] = useState<Weather>();
+  const { getWeather } = WeatherProvider();
+  const [weather, setWeather] = useState<Weather>();
 
   useEffect(() => {
     fetchCurrentLocation();
-    getWeatherByCoords().then((weather: Weather) => setCurrLocationWeather(weather));
+    getWeather().then((weather: Weather) => setWeather(weather));
   }, []);
 
   const fetchCurrentLocation = (): void => {
@@ -23,7 +23,7 @@ const Home = () => {
     });
   };
 
-  return <>{currLocationWeather !== undefined && <WeatherCard weather={currLocationWeather} />}</>;
+  return <>{weather !== undefined && <WeatherCard weather={weather.today} />}</>;
 };
 
 export default Home;

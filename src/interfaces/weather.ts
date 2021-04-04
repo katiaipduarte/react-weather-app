@@ -1,7 +1,8 @@
-import { Temperature } from './temperature';
+import { CurrentWeather } from './current-weather';
+import { Forecast } from './forecast';
 
 export type Weather = {
   location: string;
-  temp: Temperature;
-  description: string;
+  today: CurrentWeather;
+  forecast: Forecast[];
 };
