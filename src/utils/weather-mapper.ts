@@ -14,7 +14,6 @@ import { Weather } from '../interfaces/weather';
  */
 export const mapToWeatherInterface = (data: WeatherResponse): Weather => {
   const mapped: Weather = {
-    location: '',
     today: convertToCurrentWeather(data.current),
     forecast: convertToForecast(data.daily),
   };

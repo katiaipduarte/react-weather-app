@@ -4,8 +4,9 @@ import ForecastList from '../components/ForecastList/ForecastList';
 import WeatherCard from '../components/WeatherCard/WeatherCard';
 import { Location } from '../interfaces/location';
 import { Weather } from '../interfaces/weather';
+import LocationProvider from '../lib/location-provider';
 import WeatherProvider from '../lib/weather-provider';
-import { updateCurrentLocation } from '../store/current-location/action';
+import { updateCurrentGeoLocation } from '../store/current-location/action';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -19,8 +20,9 @@ const Home = () => {
 
   const fetchCurrentLocation = (): void => {
     navigator.geolocation.getCurrentPosition((position) => {
-      const coords: Location = { lat: position.coords.latitude, lon: position.coords.longitude };
-      dispatch(updateCurrentLocation(coords));
+      const coords: Location = { city: '', country: '', lat: position.coords.latitude, lon: position.coords.longitude };
+      LocationProvider().getLocationByCoords(position.coords.latitude, position.coords.longitude);
+      dispatch(updateCurrentGeoLocation(coords));
     });
   };
 

@@ -347,3 +347,13 @@ template {
 [hidden] {
   display: none;
 }
+
+footer {
+  color: white;
+  font-size: 11rem;
+}
+footer img {
+  width: 12px;
+  height: 12px;
+  margin-left: 5px;
+}

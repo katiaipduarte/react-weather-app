@@ -3,6 +3,8 @@ import { WeatherCardContainer } from './WeatherCard.style';
 import { CurrentWeather } from '../../interfaces/current-weather';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { GlobalState } from '../../store/store';
+import { useSelector } from 'react-redux';
 
 type Props = {
   weather: CurrentWeather;
@@ -10,6 +12,7 @@ type Props = {
 
 const WeatherCard = (props: Props) => {
   const { weather } = props;
+  const currLocation = useSelector((state: GlobalState) => state.currentLocationState);
 
   const renderWeatherCard = (): JSX.Element => {
     return (
@@ -37,7 +40,15 @@ const WeatherCard = (props: Props) => {
     );
   };
 
-  return <WeatherCardContainer>{renderWeatherCard()}</WeatherCardContainer>;
+  return (
+    <WeatherCardContainer>
+      <h3>{currLocation.country}</h3>
+      <h2>{currLocation.city}</h2>
+      {weather.weather_icon !== '' && <FontAwesomeIcon icon={weather.weather_icon as IconProp} />}
+      <h1>{weather.temperature}</h1>
+      <p>{weather.date}</p>
+    </WeatherCardContainer>
+  );
 };
 
 export default WeatherCard;

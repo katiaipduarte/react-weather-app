@@ -1,5 +1,3 @@
-import moment from 'moment';
-import { error } from 'node:console';
 import { useSelector } from 'react-redux';
 import { WeatherResponse } from '../interfaces/dto/weather-response';
 import { Weather } from '../interfaces/weather';
@@ -25,8 +23,7 @@ const WeatherProvider = () => {
       });
     // .catch((err) => {
     //   console.error(err);
-    //   return error;
-    // });;
+    // });
   };
 
   return {
