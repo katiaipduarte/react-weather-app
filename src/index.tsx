@@ -24,6 +24,8 @@ import City from './pages/City';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import { GlobalStyle } from './styles';
+import CurrentLocation from './pages/CurrentLocation';
+import Favourites from './pages/Favourites';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -31,6 +33,8 @@ ReactDOM.render(
       <BrowserRouter>
         <Switch>
           <Route path="/" exact={true} component={Home} />
+          <Route path="/current-location" exact={true} component={CurrentLocation} />
+          <Route path="/favourites" exact={true} component={Favourites} />
           <Route path="/:city" component={City} />
           <Route component={NotFound} />
         </Switch>

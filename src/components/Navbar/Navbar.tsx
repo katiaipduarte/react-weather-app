@@ -2,6 +2,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Form from '../Form/Form';
 import { NavbarContainer } from './Navbar.style';
 
 const Navbar = () => {
@@ -14,7 +15,7 @@ const Navbar = () => {
           <Link to="/">Weather App</Link>
         </li>
         <li className="item">
-          <Link to="/">Current Location</Link>
+          <Link to="/current-location">Current Location</Link>
         </li>
         <li className="item">
           <Link to="/favourites">Favourites</Link>

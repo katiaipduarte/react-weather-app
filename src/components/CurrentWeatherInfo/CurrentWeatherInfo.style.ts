@@ -5,7 +5,6 @@ export const WeatherInfoContainer = styled.section`
   align-items: center;
   justify-content: center;
   flex-flow: column;
-  margin-top: 30rem;
 
   h1,
   h2 {

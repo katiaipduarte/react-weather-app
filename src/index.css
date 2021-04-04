@@ -351,6 +351,7 @@ template {
 footer {
   color: white;
   font-size: 11rem;
+  background-color: #222;
 }
 footer img {
   width: 12px;
