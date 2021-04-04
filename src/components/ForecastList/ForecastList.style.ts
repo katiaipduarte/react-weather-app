@@ -4,7 +4,7 @@ export const List = styled.section`
   width: 50%;
   margin: 0 auto;
   border-radius: 5rem;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.45);
   line-height: 1;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);

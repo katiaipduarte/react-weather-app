@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
+  faBars,
   faBolt,
   faCloud,
   faCloudRain,
@@ -40,7 +41,7 @@ ReactDOM.render(
   document.getElementById('root'),
 );
 
-library.add(faSun, faCloudShowersHeavy, faCloud, faSmog, faCloudRain, faBolt, faSnowflake);
+library.add(faSun, faCloudShowersHeavy, faCloud, faSmog, faCloudRain, faBolt, faSnowflake, faBars);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

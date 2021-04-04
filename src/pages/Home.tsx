@@ -7,6 +7,7 @@ import { Weather } from '../interfaces/weather';
 import LocationProvider from '../lib/location-provider';
 import WeatherProvider from '../lib/weather-provider';
 import { updateCurrentGeoLocation } from '../store/current-location/action';
+import Navbar from '../components/Navbar/Navbar';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const Home = () => {
 
   return (
     <>
+      <Navbar />
       {weather !== undefined && (
         <>
           <CurrentWeatherInfo weather={weather.today} />
