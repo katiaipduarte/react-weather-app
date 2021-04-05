@@ -3,7 +3,5 @@ export const handleRequest = (response: Response) => {
     return response.json();
   } else {
     const message = response.status === 404 ? 'Resource Not found' : 'An unexpected error has occurred';
-
-    throw new Error(message);
   }
 };

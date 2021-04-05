@@ -1,4 +1,3 @@
-import { stat } from 'node:fs';
 import { Reducer } from 'redux';
 import { Location } from '../../interfaces/location';
 import { CURRENT_LOCATION_INITIAL_STATE, CurrentLocationType } from './type';

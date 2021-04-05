@@ -13,10 +13,14 @@ import { Weather } from '../interfaces/weather';
  * @returns custom Weather object used through out the application
  */
 export const mapToWeatherInterface = (data: WeatherResponse): Weather => {
-  const mapped: Weather = {
-    today: convertToCurrentWeather(data.current),
-    forecast: convertToForecast(data.daily),
-  };
+  let mapped: Weather = {} as Weather;
+
+  if (!!data) {
+    mapped = {
+      today: convertToCurrentWeather(data.current),
+      forecast: convertToForecast(data.daily),
+    };
+  }
 
   return mapped;
 };
