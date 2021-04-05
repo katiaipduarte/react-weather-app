@@ -16,12 +16,12 @@ const FavouriteButton = (props: Props) => {
   const [showFavButton, setShowFavButton] = useState<boolean>(false);
   const dispatch = useDispatch();
 
-  const onFavouriteLocation = () => {
+  const onFavouriteLocation = (): void => {
     dispatch(addFavouriteLocation(location));
     setShowFavButton(true);
   };
 
-  const onUnfavouriteLocation = () => {
+  const onUnfavouriteLocation = (): void => {
     dispatch(deleteFavouriteLocation(location));
     setShowFavButton(false);
   };
