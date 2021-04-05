@@ -1,18 +1,17 @@
 import { useSelector } from 'react-redux';
 import { WeatherResponse } from '../interfaces/dto/weather-response';
 import { Weather } from '../interfaces/weather';
-import { GlobalState } from '../store/store';
 import { handleRequest } from '../utils/handle-request';
 import { mapToWeatherInterface } from '../utils/weather-mapper';
 
 const WeatherProvider = () => {
   const baseUrl = process.env.REACT_APP_WEATHER_API_URL?.replace(/\/+$/, '');
   const exclude = 'minutely,hourly,alerts';
-  const currLocation = useSelector((state: GlobalState) => state.currentLocationState);
 
-  const getWeather = async (): Promise<Weather> => {
+  const getWeather = async (lat: number, lon: number): Promise<Weather> => {
+    console.log(lat, lon);
     return await fetch(
-      `${baseUrl}/onecall?lat=${currLocation.lat}&lon=${currLocation.lon}&units=metric&exclude=${exclude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`,
+      `${baseUrl}/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=${exclude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`,
       {
         method: 'GET',
       },
