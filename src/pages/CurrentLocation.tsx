@@ -10,6 +10,7 @@ import { updateCurrentGeoLocation } from '../store/current-location/action';
 import Navbar from '../components/Navbar/Navbar';
 import backgroundImage from '../assets/background.jpg';
 import { GlobalState } from '../store/store';
+import FavouriteButton from '../components/FavouriteButton/FavouriteButton';
 
 const CurrentLocation = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const CurrentLocation = () => {
       <Navbar />
       {weather !== undefined && (
         <main style={{ backgroundImage: `url(${backgroundImage})` }}>
+          <FavouriteButton location={currLocation} />
           <CurrentWeatherInfo weather={weather.today} city={currLocation.city} country={currLocation.country} />
           <ForecastList forecast={weather.forecast} />
         </main>

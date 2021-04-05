@@ -7,6 +7,7 @@ import { Weather } from '../interfaces/weather';
 import WeatherProvider from '../lib/weather-provider';
 import { useSelector } from 'react-redux';
 import { GlobalState } from '../store/store';
+import FavouriteButton from '../components/FavouriteButton/FavouriteButton';
 
 type Props = {
   match: {
@@ -35,6 +36,7 @@ const City = (props: Props) => {
       <Navbar />
       {weather !== undefined && (
         <main style={{ backgroundImage: `url(${backgroundImage})` }}>
+          <FavouriteButton location={searchState.searchedResult} />
           <CurrentWeatherInfo
             weather={weather.today}
             city={searchState.searchedResult.city}

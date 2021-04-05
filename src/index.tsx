@@ -9,6 +9,7 @@ import {
   faCloud,
   faCloudRain,
   faCloudShowersHeavy,
+  faHeart,
   faSearchLocation,
   faSmog,
   faSnowflake,
@@ -57,6 +58,7 @@ library.add(
   faBars,
   faSearchLocation,
   faTimes,
+  faHeart,
 );
 
 // If you want your app to work offline and load faster, you can change

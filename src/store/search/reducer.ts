@@ -2,7 +2,7 @@ import { Reducer } from 'redux';
 import { Location } from '../../interfaces/location';
 import { SearchState, INITIAL_SEARCH_STATE, SearchTypes } from './type';
 
-type CurrentLocationReducer = {
+type SearchReducer = {
   type: string;
   payload?: any;
 };
@@ -19,10 +19,7 @@ const getSelectedLocation = (searchTerm: string, locations: Location[]): Locatio
   return locations.find((i: Location) => i.city === city && i.country === country) as Location;
 };
 
-const searchStateReducer: Reducer<SearchState> = (
-  state: SearchState = INITIAL_SEARCH_STATE,
-  action: CurrentLocationReducer,
-) => {
+const searchStateReducer: Reducer<SearchState> = (state: SearchState = INITIAL_SEARCH_STATE, action: SearchReducer) => {
   switch (action.type) {
     case SearchTypes.SEARCH_ITEMS_LOAD:
       return { ...state, locations: action.payload };
