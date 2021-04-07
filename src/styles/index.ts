@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
             height: calc(100vh - 100px);
             padding: 0;
             flex: 1;
+            padding: 25rem;
 
             h1, h2, h3, h4, h5, h6, p {
                 color: white;
