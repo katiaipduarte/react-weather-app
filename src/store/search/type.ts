@@ -17,10 +17,5 @@ export interface SearchState {
 export const INITIAL_SEARCH_STATE: SearchState = {
   searchQuery: '',
   locations: [],
-  searchedResult: {
-    city: 'Lisbon',
-    country: 'Portugal',
-    lat: 38.7259284,
-    lon: -9.137382, //Original value: -9.137382,17 but since it's not reading the float it was rounded to -9.137382
-  },
+  searchedResult: {} as Location,
 };

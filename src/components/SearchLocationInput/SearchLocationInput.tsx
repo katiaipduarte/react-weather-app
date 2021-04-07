@@ -120,7 +120,8 @@ const SearchLocationInput = (): JSX.Element => {
 
   const createNewUrl = (item: string): void => {
     const city = item.split(', ')[0].replace(/\s+/g, '-').toLowerCase();
-    history.push(`/${city}`);
+    const country = item.split(', ')[1].replace(/\s+/g, '-').toLowerCase();
+    history.push(`/${city}/${country}`);
   };
 
   const renderEmptySearch = (): JSX.Element => {

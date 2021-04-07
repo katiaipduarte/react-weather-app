@@ -13,8 +13,9 @@ const FavouriteLocations = () => {
   const history = useHistory();
 
   const onSelectLocation = (location: LocationWeatherInformation): void => {
-    const city = location.location.city.split(', ')[0].replace(/\s+/g, '-').toLowerCase();
-    history.push(`/${city}`);
+    const city = location.location.city.replace(/\s+/g, '-').toLowerCase();
+    const country = location.location.country.replace(/\s+/g, '-').toLowerCase();
+    history.push(`/${city}/${country}`);
   };
 
   const renderEmptyFavourites = (): JSX.Element => {

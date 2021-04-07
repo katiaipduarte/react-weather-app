@@ -11,6 +11,7 @@ import Navbar from '../components/Navbar/Navbar';
 import backgroundImage from '../assets/background.jpg';
 import { GlobalState } from '../store/store';
 import FavouriteButton from '../components/FavouriteButton/FavouriteButton';
+import { recentlyViewed } from '../store/recently-viewed/action';
 
 const CurrentLocation = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ const CurrentLocation = () => {
       getWeather(position.coords.latitude, position.coords.longitude).then((weather: Weather) => {
         dispatch(updateCurrentLocationWeather(weather));
         setWeather(weather);
+        dispatch(recentlyViewed(currLocation));
       });
     });
   };

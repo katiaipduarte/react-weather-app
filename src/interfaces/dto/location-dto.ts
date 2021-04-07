@@ -14,7 +14,7 @@ type Link = {
   rel: string;
 };
 
-type Data = {
+export type Data = {
   country: string;
   countryCode: string;
   distance: number;

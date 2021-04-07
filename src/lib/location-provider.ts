@@ -1,6 +1,6 @@
 import { updateCurrentLocation } from '../store/current-location/action';
 import { handleRequest } from '../utils/handle-request';
-import { LocationDto } from '../interfaces/dto/location-dto';
+import { Data, LocationDto } from '../interfaces/dto/location-dto';
 import store from '../store/store';
 import { PlacesResponse } from '../interfaces/dto/places-response';
 import { mapToLocationInterface } from '../utils/search-mapper';
@@ -36,6 +36,35 @@ const LocationProvider = () => {
       });
   };
 
+  const getLocationByName = async (city: string, country: string): Promise<Location> => {
+    return await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=5&offset=0&namePrefix=${city}`, {
+      method: 'GET',
+      headers: {
+        'x-rapidapi-key': GEO_DB_CITIES_KEY,
+        'x-rapidapi-host': 'wft-geo-db.p.rapidapi.com',
+      },
+    })
+      .then((res) => handleRequest(res))
+      .then((location: LocationDto) => {
+        if (!!location && location.data.length !== 0) {
+          const correctCity = location.data.find((i: Data) => i.country.toLowerCase().replace(/\s+/g, '-') === country);
+
+          const coords: Location = {
+            city: correctCity === undefined ? location.data[0].name : correctCity.name,
+            country: correctCity === undefined ? location.data[0].country : correctCity.country,
+            lat: correctCity === undefined ? location.data[0].latitude : correctCity.latitude,
+            lon: correctCity === undefined ? location.data[0].longitude : correctCity.longitude,
+          };
+          return coords;
+        }
+        return {} as Location;
+      })
+      .catch((err) => {
+        console.error(err);
+        return err;
+      });
+  };
+
   const searchForPlaces = async (query: string): Promise<Location[]> => {
     return await fetch(`https://spott.p.rapidapi.com/places/autocomplete?q=${query}&type=CITY`, {
       method: 'GET',
@@ -52,6 +81,7 @@ const LocationProvider = () => {
 
   return {
     getLocationByCoords,
+    getLocationByName,
     searchForPlaces,
   };
 };

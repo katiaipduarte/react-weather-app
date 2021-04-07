@@ -37,7 +37,7 @@ ReactDOM.render(
           <Route path="/" exact={true} component={Home} />
           <Route path="/current-location" exact={true} component={CurrentLocation} />
           <Route path="/favourites" exact={true} component={Favourites} />
-          <Route path="/:city" component={City} />
+          <Route path="/:city/:country" component={City} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
