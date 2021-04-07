@@ -21,7 +21,7 @@ import store from './store/store';
 import * as serviceWorker from './serviceWorker';
 
 import './index.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import City from './pages/City';
 import CurrentLocation from './pages/CurrentLocation';
 import Favourites from './pages/Favourites';
@@ -32,7 +32,7 @@ import { GlobalStyle } from './styles';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <Router basename={process.env.REACT_APP_PUBLIC_URL}>
         <Switch>
           <Route path="/" exact={true} component={Home} />
           <Route path="/current-location" exact={true} component={CurrentLocation} />
@@ -40,7 +40,7 @@ ReactDOM.render(
           <Route path="/:city/:country" component={City} />
           <Route component={NotFound} />
         </Switch>
-      </BrowserRouter>
+      </Router>
       <GlobalStyle />
     </Provider>
   </React.StrictMode>,
