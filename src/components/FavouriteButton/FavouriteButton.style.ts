@@ -4,6 +4,7 @@ export const FavouriteButtonContainer = styled.button`
   width: 100%;
   flex-wrap: wrap;
   justify-content: flex-end;
+  padding-top: 25rem;
 
   &:focus {
     outline: none;

@@ -1,5 +1,5 @@
 import { Reducer } from 'redux';
-import { Location } from '../../interfaces/location';
+import { LocationWeatherInformation } from '../../interfaces/location-weather-info';
 import { FAVOURITE_LOCATIONS_INITIAL_STATE, FavouriteLocationsType, FavouriteLocations } from './type';
 
 type FavouriteLocationsReducer = {
@@ -14,12 +14,15 @@ const favouriteLocationsReducer: Reducer<FavouriteLocations> = (
   switch (action.type) {
     case FavouriteLocationsType.ADD_FAVOURITE:
       return {
-        locations: [...state.locations, action.payload],
+        favourites: [...state.favourites, action.payload],
       };
     case FavouriteLocationsType.DELETE_FAVOURITE:
       return {
-        locations: state.locations.filter(
-          (i: Location) => !(i.city === action.payload.city && i.country === action.payload.country),
+        favourites: state.favourites.filter(
+          (i: LocationWeatherInformation) =>
+            !(
+              i.location.city === action.payload.location.city && i.location.country === action.payload.location.country
+            ),
         ),
       };
     default:

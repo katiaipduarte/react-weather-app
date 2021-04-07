@@ -1,4 +1,4 @@
-import { Location } from '../../interfaces/location';
+import { LocationWeatherInformation } from '../../interfaces/location-weather-info';
 
 export const FavouriteLocationsType = {
   ADD_FAVOURITE: '@@FAVOURITE_LOCATIONS/ADD_FAVOURITE',
@@ -6,9 +6,9 @@ export const FavouriteLocationsType = {
 };
 
 export interface FavouriteLocations {
-  locations: Location[];
+  favourites: LocationWeatherInformation[];
 }
 
 export const FAVOURITE_LOCATIONS_INITIAL_STATE: FavouriteLocations = {
-  locations: [{ city: 'Lisbon', country: 'Portugal', lat: 38.7259284, lon: -9.137382 }], //Original value: -9.137382,17 but since it's not reading the float it was rounded to -9.137382
+  favourites: [],
 };

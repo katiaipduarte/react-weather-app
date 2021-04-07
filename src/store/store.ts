@@ -1,23 +1,28 @@
 import { combineReducers, applyMiddleware, createStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
-import { Location } from '../interfaces/location';
+
+import { LocationWeatherInformation } from '../interfaces/location-weather-info';
 import { SearchState } from './search/type';
 import { FavouriteLocations } from './favourite-locations/type';
+import { RecentlyViewed } from './recently-viewed/type';
 
 import currentLocationReducer from './current-location/reducer';
 import searchStateReducer from './search/reducer';
 import favouriteLocationsReducer from './favourite-locations/reducer';
+import recentlyViewedReducer from './recently-viewed/reducer';
 
 export interface GlobalState {
-  currentLocationState: Location;
+  currentLocationState: LocationWeatherInformation;
   searchState: SearchState;
   favouriteLocationsState: FavouriteLocations;
+  recentlyViewedState: RecentlyViewed;
 }
 
 const combinedReducer = combineReducers<GlobalState>({
   currentLocationState: currentLocationReducer,
   searchState: searchStateReducer,
   favouriteLocationsState: favouriteLocationsReducer,
+  recentlyViewedState: recentlyViewedReducer,
 });
 
 const bindMiddleware = (middleware: any) => {

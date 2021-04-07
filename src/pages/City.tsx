@@ -8,6 +8,7 @@ import WeatherProvider from '../lib/weather-provider';
 import { useSelector } from 'react-redux';
 import { GlobalState } from '../store/store';
 import FavouriteButton from '../components/FavouriteButton/FavouriteButton';
+import { LocationWeatherInformation } from '../interfaces/location-weather-info';
 
 type Props = {
   match: {
@@ -31,20 +32,29 @@ const City = (props: Props) => {
     );
   }, []);
 
+  const getInformationToFavourite = (): LocationWeatherInformation => {
+    return {
+      location: searchState.searchedResult,
+      weather: weather as Weather,
+    };
+  };
+
   return (
     <>
       <Navbar />
-      {weather !== undefined && (
-        <main style={{ backgroundImage: `url(${backgroundImage})` }}>
-          <FavouriteButton location={searchState.searchedResult} />
-          <CurrentWeatherInfo
-            weather={weather.today}
-            city={searchState.searchedResult.city}
-            country={searchState.searchedResult.country}
-          />
-          <ForecastList forecast={weather.forecast} />
-        </main>
-      )}
+      <main style={{ backgroundImage: `url(${backgroundImage})` }}>
+        {weather !== undefined && (
+          <>
+            <FavouriteButton information={getInformationToFavourite()} />
+            <CurrentWeatherInfo
+              weather={weather.today}
+              city={searchState.searchedResult.city}
+              country={searchState.searchedResult.country}
+            />
+            <ForecastList forecast={weather.forecast} />
+          </>
+        )}
+      </main>
     </>
   );
 };

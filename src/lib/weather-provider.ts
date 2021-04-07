@@ -9,7 +9,6 @@ const WeatherProvider = () => {
   const exclude = 'minutely,hourly,alerts';
 
   const getWeather = async (lat: number, lon: number): Promise<Weather> => {
-    console.log(lat, lon);
     return await fetch(
       `${baseUrl}/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=${exclude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`,
       {

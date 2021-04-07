@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 
         main {
             height: calc(100vh - 100px);
-            padding: 25rem;
+            padding: 0;
             flex: 1;
 
             h1, h2, h3, h4, h5, h6, p {
