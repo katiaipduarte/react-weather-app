@@ -23,14 +23,13 @@ const FavouriteButton = (props: Props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(favouritesLocations.favourites);
     const isFavourite = favouritesLocations.favourites.find(
       (i: LocationWeatherInformation) =>
         i.location.city === information.location.city && i.location.country === information.location.country,
     );
 
     setShowFavButton(isFavourite !== undefined);
-  }, []);
+  }, [favouritesLocations.favourites]);
 
   useEffect(() => {
     setCookie(favouritesLocations.cookie_key, favouritesLocations.favourites);
