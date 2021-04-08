@@ -19,7 +19,8 @@ const App = () => {
 
   useEffect(() => {
     const get = cookies[favouritesLocations.cookie_key];
-    if (get.length !== 0) {
+
+    if (get) {
       dispatch(initFavouriteLocation(get));
     }
   }, []);
