@@ -12,7 +12,6 @@ const Favourites = () => {
 
   useEffect(() => {
     setLocations(favouritesLocations.favourites);
-    console.log(favouritesLocations.favourites);
   }, [favouritesLocations.favourites]);
 
   return (
