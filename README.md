@@ -85,7 +85,7 @@ For the project to build, **these files must exist with exact filenames**:
 - `src/index.tsx` is the TypeScript entry point.
 
 You may create subdirectories inside `src`. For faster rebuilds, only files inside `src` are processed by Webpack.<br>
-You need to **put any JS and CSS files inside `src`**, otherwise Webpack won’t see them.
+You need to **put any TypeScript and styles files inside `src`**, otherwise Webpack won’t see them.
 
 Only files inside `public` can be used from `public/index.html`.<br>
 
