@@ -21,6 +21,14 @@ export const GlobalStyle = createGlobalStyle`
             background-repeat: no-repeat;
             background-size: cover;
 
+            .page-loader {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+            }
+
             &.centered-container {
                 display: flex;
                 flex-direction: column;

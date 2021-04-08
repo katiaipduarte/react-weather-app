@@ -56,7 +56,6 @@ const SearchLocationInput = (): JSX.Element => {
 
     if (event.target.value.length >= 3) {
       search(event.target.value);
-      setShowSearchOptions(true);
       dispatch(doSearch(event.target.value));
     } else {
       setShowSearchOptions(false);
@@ -67,6 +66,7 @@ const SearchLocationInput = (): JSX.Element => {
     searchForPlaces(searchTerm).then((locations: Location[]) => {
       setLocations(locations);
       dispatch(addSearchItems(locations));
+      setShowSearchOptions(true);
     });
   };
 

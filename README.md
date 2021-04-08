@@ -14,6 +14,7 @@ The app was created with create-react-app, redux, typescript and styled-componen
 - [Contributing](#contributing)
 - [License](#license)
 - [Folder Structure](#folder-structure)
+- [Routes](#routes)
 - [Available Scripts](#available-scripts)
   - [yarn start or npm start](#yarn-start-or-npm-start)
   - [yarn test or npm test](#yarn-test-or-npm-test)
@@ -39,10 +40,10 @@ This project is connected to 3 external API.
 
 ## Future Work
 
-[ ] Have just one API to deal with locations and coordinates.
-[ ] Add authentication
-[ ] Connect the website to a database, so we can save the favourites for each user
-[ ] Add different background and card images, taking into account the location selected.
+[ ] Have just one API to deal with locations and coordinates<br>
+[ ] Add authentication<br>
+[ ] Connect the website to a database, so we can save the favourites for each user<br>
+[ ] Add different background and card images, taking into account the location selected<br>
 
 ## Contributing
 
@@ -88,6 +89,26 @@ You may create subdirectories inside `src`. For faster rebuilds, only files insi
 You need to **put any TypeScript and styles files inside `src`**, otherwise Webpack won’t see them.
 
 Only files inside `public` can be used from `public/index.html`.<br>
+
+## Routes
+
+```
+/
+```
+
+```
+/current-location
+```
+
+```
+/favourites
+```
+
+```
+/:city/:country
+```
+
+The last route can be accessed by two ways, using the search bar and selecting one option or putting directly in a city and country in the url path.
 
 ## Available Scripts
 

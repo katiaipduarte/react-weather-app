@@ -12,6 +12,7 @@ import { LocationWeatherInformation } from '../interfaces/location-weather-info'
 import { recentlyViewed } from '../store/recently-viewed/action';
 import LocationProvider from '../lib/location-provider';
 import { Location } from '../interfaces/location';
+import Loader from 'react-loader-spinner';
 
 type Props = {
   match: {
@@ -81,6 +82,11 @@ const City = ({ match }: Props) => {
     <>
       <Navbar />
       <main style={{ backgroundImage: `url(${backgroundImage})` }}>
+        {weather === undefined && location === undefined && (
+          <div className="page-loader">
+            <Loader type="Bars" color="#FFFFFF" height={80} width={80} />
+          </div>
+        )}
         {weather !== undefined && location !== undefined && (
           <>
             <FavouriteButton information={getInformationToFavourite()} />
