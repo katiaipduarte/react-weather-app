@@ -7,13 +7,13 @@ const NotFound = () => {
   return (
     <>
       <Navbar />
-      <main style={{ backgroundImage: `url(${backgroundImage})` }}>
-        <p>
-          Page not found - the path, <code>{location.pathname}</code>, did not match any React Router routes. Go back to
+      <main style={{ backgroundImage: `url(${backgroundImage})` }} className="centered-container">
+        <h1>
+          Page not found. Go back to
           <Link to="/" replace>
-            homepage.
+            {` homepage.`}
           </Link>
-        </p>
+        </h1>
       </main>
     </>
   );

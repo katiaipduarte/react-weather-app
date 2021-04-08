@@ -17,6 +17,21 @@ export const GlobalStyle = createGlobalStyle`
             padding: 0;
             flex: 1;
             padding: 25rem;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            &.centered-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                h1,
+                h3 {
+                    text-align: center;
+                }
+            }
 
             h1, h2, h3, h4, h5, h6, p {
                 color: white;
