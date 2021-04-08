@@ -7,8 +7,12 @@ import { LocationWeatherInformation } from '../../interfaces/location-weather-in
 import { GlobalState } from '../../store/store';
 import { FavouriteLocationsContainer } from './FavouriteLocations.style';
 
-const FavouriteLocations = () => {
-  const favouritesLocations = useSelector((state: GlobalState) => state.favouriteLocationsState);
+type Props = {
+  locations: LocationWeatherInformation[];
+};
+
+const FavouriteLocations = (props: Props) => {
+  const { locations } = props;
   const symbol = '\u00b0C';
   const history = useHistory();
 
@@ -25,17 +29,17 @@ const FavouriteLocations = () => {
   const renderFavourites = (): JSX.Element => {
     return (
       <ul>
-        {favouritesLocations.favourites.map(
+        {locations.map(
           (entry: LocationWeatherInformation, index: number): JSX.Element => {
             return (
               <li key={index} onClick={() => onSelectLocation(entry)}>
                 <div>
                   <p>{entry.location.city}</p>
                   <p className="weather-forecast-info">
-                    {entry.weather.today.weather_icon !== '' && (
-                      <FontAwesomeIcon icon={entry.weather.today.weather_icon as IconProp} />
+                    {entry.weather?.today.weather_icon !== '' && (
+                      <FontAwesomeIcon icon={entry.weather?.today.weather_icon as IconProp} />
                     )}
-                    <span>{`${entry.weather.today.temperature} ${symbol}`}</span>
+                    <span>{`${entry.weather?.today.temperature} ${symbol}`}</span>
                   </p>
                 </div>
               </li>
@@ -48,8 +52,8 @@ const FavouriteLocations = () => {
 
   return (
     <FavouriteLocationsContainer>
-      {favouritesLocations.favourites.length === 0 && renderEmptyFavourites()}
-      {favouritesLocations.favourites.length !== 0 && renderFavourites()}
+      {locations.length === 0 && renderEmptyFavourites()}
+      {locations.length !== 0 && renderFavourites()}
     </FavouriteLocationsContainer>
   );
 };

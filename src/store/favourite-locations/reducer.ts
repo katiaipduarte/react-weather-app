@@ -12,12 +12,19 @@ const favouriteLocationsReducer: Reducer<FavouriteLocations> = (
   action: FavouriteLocationsReducer,
 ) => {
   switch (action.type) {
+    case FavouriteLocationsType.INIT_FAVOURITES:
+      return {
+        ...state,
+        favourites: [...state.favourites, ...action.payload],
+      };
     case FavouriteLocationsType.ADD_FAVOURITE:
       return {
+        ...state,
         favourites: [...state.favourites, action.payload],
       };
     case FavouriteLocationsType.DELETE_FAVOURITE:
       return {
+        ...state,
         favourites: state.favourites.filter(
           (i: LocationWeatherInformation) =>
             !(

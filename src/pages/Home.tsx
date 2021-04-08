@@ -6,7 +6,6 @@ import SearchLocationInput from '../components/SearchLocationInput/SearchLocatio
 const Home = () => {
   return (
     <>
-      <Navbar />
       <main style={{ backgroundImage: `url(${backgroundImage})` }} className="centered-container">
         <h1>Welcome!</h1>
         <h3>Select your city to view the weather forecast.</h3>

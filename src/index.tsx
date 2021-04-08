@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-
+import { CookiesProvider } from 'react-cookie';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faBars,
@@ -21,31 +22,12 @@ import store from './store/store';
 import * as serviceWorker from './serviceWorker';
 
 import './index.css';
-import { HashRouter, Switch, Route } from 'react-router-dom';
-import City from './pages/City';
-import CurrentLocation from './pages/CurrentLocation';
-import Favourites from './pages/Favourites';
-import Home from './pages/Home';
-import NotFound from './pages/NotFound';
-import { GlobalStyle } from './styles';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <HashRouter>
-        <Route
-          render={({ location }) => (
-            <Switch location={location}>
-              <Route path="/" exact={true} component={Home} />
-              <Route path="/current-location" exact={true} component={CurrentLocation} />
-              <Route path="/favourites" exact={true} component={Favourites} />
-              <Route path="/:city/:country" component={City} />
-              <Route component={NotFound} />
-            </Switch>
-          )}
-        />
-      </HashRouter>
-      <GlobalStyle />
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),

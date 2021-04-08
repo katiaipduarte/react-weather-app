@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../components/Navbar/Navbar';
 import backgroundImage from '../assets/background.jpg';
 import CurrentWeatherInfo from '../components/CurrentWeatherInfo/CurrentWeatherInfo';
 import ForecastList from '../components/ForecastList/ForecastList';
@@ -80,7 +79,6 @@ const City = ({ match }: Props) => {
 
   return (
     <>
-      <Navbar />
       <main style={{ backgroundImage: `url(${backgroundImage})` }}>
         {weather === undefined && location === undefined && (
           <div className="page-loader">

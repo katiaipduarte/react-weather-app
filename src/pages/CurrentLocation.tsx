@@ -7,7 +7,6 @@ import { Weather } from '../interfaces/weather';
 import LocationProvider from '../lib/location-provider';
 import WeatherProvider from '../lib/weather-provider';
 import { updateCurrentGeoLocation, updateCurrentLocationWeather } from '../store/current-location/action';
-import Navbar from '../components/Navbar/Navbar';
 import backgroundImage from '../assets/background.jpg';
 import { GlobalState } from '../store/store';
 import FavouriteButton from '../components/FavouriteButton/FavouriteButton';
@@ -39,7 +38,6 @@ const CurrentLocation = () => {
 
   return (
     <>
-      <Navbar />
       <main style={{ backgroundImage: `url(${backgroundImage})` }}>
         {weather === undefined && (
           <div className="page-loader">
