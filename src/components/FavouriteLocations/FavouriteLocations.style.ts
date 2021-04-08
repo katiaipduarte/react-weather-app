@@ -5,7 +5,7 @@ export const FavouriteLocationsContainer = styled.section`
   align-items: center;
   justify-content: center;
   flex-flow: column;
-  height: 100vh;
+  height: 100%;
 
   ul {
     display: flex;
@@ -26,6 +26,7 @@ export const FavouriteLocationsContainer = styled.section`
       height: 180rem;
       padding: 15rem;
       width: 150rem;
+      position: relative;
       div {
         position: absolute;
         bottom: 15rem;
