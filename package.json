@@ -8,8 +8,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "type-check": "tsc",
-    "lint": "npm run type-check && eslint */**/*.{ts,tsx} --quiet --fix",
+    "lint": "eslint */**/*.{ts,tsx} --quiet --fix",
     "format": "prettier --config ./.prettierrc --write \"*/**/*{.ts,.tsx}\"",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -51,7 +50,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged && npm run lint && npm run format",
-      "pre-push": "lint-staged && tsc --noEmit"
+      "pre-push": "lint-staged"
     }
   },
   "eslintConfig": {

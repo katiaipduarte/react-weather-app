@@ -1,14 +1,16 @@
-#react-weather-app
+# react-weather-app
 
 Welcome to my Weather App, where you can enter a location to fetch the current weather or see the weather in you current location. You can also add a new city to the favourites, and also delete it.
 
 Demo at: https://katiaipduarte.github.io/react-weather-app/#/
 
-The app was created with create-react-app, redux and typescript. See the [full create-react-app guide](https://github.com/facebook/create-react-app), [redux](https://redux.js.org/) and [redux toolkit](https://redux-toolkit.js.org/). Thank you for using my app.
+The app was created with create-react-app, redux, typescript and styled-components for styling. See the [full create-react-app guide](https://github.com/facebook/create-react-app), [redux](https://redux.js.org/) and [redux toolkit](https://redux-toolkit.js.org/). Thank you for using my app.
 
 ## Table of Contents
 
 - [Installation](#installation)
+  - [API Keys](#api-keys)
+- [Future Work](#future-work)
 - [Contributing](#contributing)
 - [License](#license)
 - [Folder Structure](#folder-structure)
@@ -17,8 +19,30 @@ The app was created with create-react-app, redux and typescript. See the [full c
   - [yarn test or npm test](#yarn-test-or-npm-test)
   - [yarn build or npm run build](#yarn-build-or-npm-run-build)
   - [yarn eject or npm run eject](#yarn-eject-or-npm-run-eject)
+  - [npm run lint](#npm-run-lint)
+  - [npm run format](#npm-run-format)
+  - [npm run predeploy](#npm-run-predeploy)
+  - [npm run deploy](#npm-run-deploy)
 
 ## Installation
+
+To use this app, first clone from GitHub via 'git clone https://github.com/katiaipduarte/react-weather-app.git' at your terminal, `cd` to the new directory, then run `npm install`. Before running this project, you will need to create a `.env.local` file, with the same env as the ones in the `.env.example`. At last, run `npm run start` to launch your http server.
+
+### API Keys
+
+This project is connected to 3 external API.
+
+- Weather data fetched from OpenWeatherMap API, you can sign-up for a FREE API key at https://openweathermap.org/.
+- Location related data are fetched by using 2 external API's, and you can sign-up for a FREE API key at https://rapidapi.com/marketplace.
+  - [GeoDB Cities API](http://geodb-cities-api.wirefreethought.com/), to get the locations based on GPS coordinates.
+  - [Spott API](https://www.spott.dev/), to create the search bar.
+
+## Future Work
+
+[ ] Have just one API to deal with locations and coordinates.
+[ ] Add authentication
+[ ] Connect the website to a database, so we can save the favourites for each user
+[ ] Add different background and card images, taking into account the location selected.
 
 ## Contributing
 
@@ -29,6 +53,41 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/katiai
 The code is available as open source under the terms of the MIT License.
 
 ## Folder Structure
+
+After creation, your project should look like this:
+
+```
+my-app/
+  README.md
+  node_modules/
+  package.json
+  public/
+    index.html
+    favicon.ico
+  src/
+    assets/
+    components/
+    interfaces/
+      dto/
+    lib/
+    pages/
+    store/
+    styles/
+      index.ts
+    utils/
+    index.css
+    index.js
+```
+
+For the project to build, **these files must exist with exact filenames**:
+
+- `public/index.html` is the page template;
+- `src/index.tsx` is the TypeScript entry point.
+
+You may create subdirectories inside `src`. For faster rebuilds, only files inside `src` are processed by Webpack.<br>
+You need to **put any JS and CSS files inside `src`**, otherwise Webpack won’t see them.
+
+Only files inside `public` can be used from `public/index.html`.<br>
 
 ## Available Scripts
 
@@ -66,3 +125,29 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+### `npm run lint`
+
+Automatic linting, with rules to work with TypeScript and React. The `src/serviceWorker.ts` file and the `node_modules`m folder are not included.
+
+This is runned each time you do a commit and a push it to your branch.
+
+For more information see the [ESLint documentation](https://eslint.org/).
+
+### `npm run format`
+
+Command to format the code according to the rules that can be found in `.prettierrc`. The `node_modules` folder is not included.
+
+This will be automatically run each time you do a commit.
+
+For more information see the [Prettier documentation](https://prettier.io/).
+
+### `npm run predeploy`
+
+This commands basically, runs the `npm run build` command. To read more just check [yarn build or npm run build](#yarn-build-or-npm-run-build).
+
+### `npm run deploy`
+
+Command to deploy the current application using Github Pages. If you forked this project onto a repository of your own, do not forget to create a `gh-pages` branch, before running this command.
+
+To learn more about how to deploy a CRA app using Github Pages, go to this [link](https://create-react-app.dev/docs/deployment/#github-pages-https-pagesgithubcom).
