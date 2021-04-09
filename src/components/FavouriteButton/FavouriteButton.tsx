@@ -52,6 +52,7 @@ const FavouriteButton = (props: Props) => {
         style={{ display: showFavButton ? 'flex' : 'none' }}
         title="Unfavourite Location"
         aria-label="Unfavourite Location"
+        className="unfavourite-btn"
       >
         <FontAwesomeIcon icon={faHeart} />
       </FavouriteButtonContainer>
@@ -60,6 +61,7 @@ const FavouriteButton = (props: Props) => {
         style={{ display: showFavButton ? 'none' : 'flex' }}
         title="Favourite Location"
         aria-label="Favourite Location"
+        className="favourite-btn"
       >
         <FontAwesomeIcon icon={farHeart} />
       </FavouriteButtonContainer>
