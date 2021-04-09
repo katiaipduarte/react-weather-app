@@ -10,9 +10,10 @@ import currentLocationReducer from './current-location/reducer';
 import searchStateReducer from './search/reducer';
 import favouriteLocationsReducer from './favourite-locations/reducer';
 import recentlyViewedReducer from './recently-viewed/reducer';
+import { CurrentLocation } from './current-location/type';
 
 export interface GlobalState {
-  currentLocationState: LocationWeatherInformation;
+  currentLocationState: CurrentLocation;
   searchState: SearchState;
   favouriteLocationsState: FavouriteLocations;
   recentlyViewedState: RecentlyViewed;

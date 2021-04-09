@@ -12,6 +12,7 @@ import { recentlyViewed } from '../store/recently-viewed/action';
 import LocationProvider from '../lib/location-provider';
 import { Location } from '../interfaces/location';
 import Loader from 'react-loader-spinner';
+import { CurrentWeather } from '../interfaces/current-weather';
 
 type Props = {
   match: {
@@ -35,30 +36,27 @@ const City = ({ match }: Props) => {
   useEffect(() => {
     const found = alreadyViewedLocation();
 
-    if (found) {
-      setWeather(found.weather);
+    if (
+      !found ||
+      searchState.searchedResult.city === '' ||
+      (searchState.searchedResult.city !== match.params.city &&
+        searchState.searchedResult.country !== match.params.country)
+    ) {
+      LocationProvider()
+        .getLocationByName(match.params.city, match.params.country)
+        .then((response: Location) => {
+          setLocation(response);
+          getWeatherInformation(response.lat, response.lon);
+        });
     } else {
-      if (
-        searchState.searchedResult.city === '' ||
-        (searchState.searchedResult.city !== match.params.city &&
-          searchState.searchedResult.country !== match.params.country)
-      ) {
-        LocationProvider()
-          .getLocationByName(match.params.city, match.params.country)
-          .then((response: Location) => {
-            setLocation(response);
-            getWeatherInformation(response.lat, response.lon);
-          });
-      } else {
-        getWeatherInformation(searchState.searchedResult.lat, searchState.searchedResult.lon);
-      }
+      getWeatherInformation(searchState.searchedResult.lat, searchState.searchedResult.lon);
     }
   }, []);
 
   const getWeatherInformation = (lat: number, lon: number): void => {
     getWeather(lat, lon).then((weather: Weather) => {
       setWeather(weather);
-      dispatch(recentlyViewed(getInformationToFavourite()));
+      dispatch(recentlyViewed(treatDataToFavourite()));
     });
   };
 
@@ -70,10 +68,10 @@ const City = ({ match }: Props) => {
     );
   };
 
-  const getInformationToFavourite = (): LocationWeatherInformation => {
+  const treatDataToFavourite = (): LocationWeatherInformation => {
     return {
       location: searchState.searchedResult.city === undefined ? (location as Location) : searchState.searchedResult,
-      weather: weather as Weather,
+      weather: weather?.today as CurrentWeather,
     };
   };
 
@@ -87,7 +85,7 @@ const City = ({ match }: Props) => {
         )}
         {weather !== undefined && location !== undefined && (
           <>
-            <FavouriteButton information={getInformationToFavourite()} />
+            <FavouriteButton information={treatDataToFavourite()} />
             <CurrentWeatherInfo weather={weather.today} city={location.city} country={location.country} />
             <ForecastList forecast={weather.forecast} />
           </>

@@ -1,4 +1,4 @@
-import { LocationWeatherInformation } from '../../interfaces/location-weather-info';
+import { Location } from '../../interfaces/location';
 import { Weather } from '../../interfaces/weather';
 
 export const CurrentLocationType = {
@@ -7,7 +7,12 @@ export const CurrentLocationType = {
   UPDATE_WEATHER: '@@CURRENT_LOCATION/UPDATE_WEATHER',
 };
 
-export const CURRENT_LOCATION_INITIAL_STATE: LocationWeatherInformation = {
+export type CurrentLocation = {
+  location: Location;
+  weather: Weather;
+};
+
+export const CURRENT_LOCATION_INITIAL_STATE: CurrentLocation = {
   location: {
     city: 'Lisbon',
     country: 'Portugal',

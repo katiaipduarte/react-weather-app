@@ -36,10 +36,10 @@ const FavouriteLocations = (props: Props) => {
                 <div>
                   <p>{entry.location.city}</p>
                   <p className="weather-forecast-info">
-                    {entry.weather?.today.weather_icon !== '' && (
-                      <FontAwesomeIcon icon={entry.weather?.today.weather_icon as IconProp} />
+                    {entry.weather.weather_icon !== '' && (
+                      <FontAwesomeIcon icon={entry.weather.weather_icon as IconProp} />
                     )}
-                    <span>{`${entry.weather?.today.temperature} ${symbol}`}</span>
+                    <span>{`${entry.weather.temperature} ${symbol}`}</span>
                   </p>
                 </div>
               </li>

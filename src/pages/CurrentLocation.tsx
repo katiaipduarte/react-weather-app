@@ -12,6 +12,7 @@ import { GlobalState } from '../store/store';
 import FavouriteButton from '../components/FavouriteButton/FavouriteButton';
 import { recentlyViewed } from '../store/recently-viewed/action';
 import Loader from 'react-loader-spinner';
+import { LocationWeatherInformation } from '../interfaces/location-weather-info';
 
 const CurrentLocation = () => {
   const dispatch = useDispatch();
@@ -31,9 +32,16 @@ const CurrentLocation = () => {
       getWeather(position.coords.latitude, position.coords.longitude).then((weather: Weather) => {
         dispatch(updateCurrentLocationWeather(weather));
         setWeather(weather);
-        dispatch(recentlyViewed(currLocation));
+        dispatch(recentlyViewed(treatDataToFavourite()));
       });
     });
+  };
+
+  const treatDataToFavourite = (): LocationWeatherInformation => {
+    return {
+      location: currLocation.location,
+      weather: currLocation.weather.today,
+    };
   };
 
   return (
@@ -46,7 +54,7 @@ const CurrentLocation = () => {
         )}
         {weather !== undefined && (
           <>
-            <FavouriteButton information={currLocation} />
+            <FavouriteButton information={treatDataToFavourite()} />
             <CurrentWeatherInfo
               weather={weather.today}
               city={currLocation.location.city}

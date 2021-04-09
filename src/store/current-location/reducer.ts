@@ -1,14 +1,13 @@
 import { Reducer } from 'redux';
-import { LocationWeatherInformation } from '../../interfaces/location-weather-info';
-import { CURRENT_LOCATION_INITIAL_STATE, CurrentLocationType } from './type';
+import { CURRENT_LOCATION_INITIAL_STATE, CurrentLocationType, CurrentLocation } from './type';
 
 type CurrentLocationReducer = {
   type: string;
   payload?: any;
 };
 
-const currentLocationReducer: Reducer<LocationWeatherInformation> = (
-  state: LocationWeatherInformation = CURRENT_LOCATION_INITIAL_STATE,
+const currentLocationReducer: Reducer<CurrentLocation> = (
+  state: CurrentLocation = CURRENT_LOCATION_INITIAL_STATE,
   action: CurrentLocationReducer,
 ) => {
   switch (action.type) {

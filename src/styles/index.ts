@@ -8,12 +8,18 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         min-width: 360px;
+        min-height: 660px;
         display: flex;
-        min-height: 100vh;
         flex-direction: column;
+
+        #root {
+            min-width: 360px;
+            min-height: 641px;
+        }
 
         main {
             height: calc(100vh - 100px);
+            min-height: 641px;
             padding: 0;
             flex: 1;
             padding: 25rem;
