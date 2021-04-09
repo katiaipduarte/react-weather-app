@@ -84,6 +84,13 @@ For the project to build, **these files must exist with exact filenames**:
 
 - `public/index.html` is the page template;
 - `src/index.tsx` is the TypeScript entry point.
+- `src/components` is the folder that houses all the components used.
+- `src/interfaces` is the folder with all the interfaces/type files used in the components.
+- `src/lib` is the folder for all the services/providers.
+- `src/pages` is the folder that contains the files with the initial logic used for each route.
+- `src/store` is the folder with the redux logic.
+- `src/style` is the folder with typography, reset and any other style rules shared by all React components.
+- `src/utils` is the folder with helper functions.
 
 You may create subdirectories inside `src`. For faster rebuilds, only files inside `src` are processed by Webpack.<br>
 You need to **put any TypeScript and styles files inside `src`**, otherwise Webpack won’t see them.
