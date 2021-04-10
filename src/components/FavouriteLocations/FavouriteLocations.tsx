@@ -1,10 +1,8 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { LocationWeatherInformation } from '../../interfaces/location-weather-info';
-import { GlobalState } from '../../store/store';
 import { FavouriteLocationsContainer } from './FavouriteLocations.style';
 
 type Props = {
