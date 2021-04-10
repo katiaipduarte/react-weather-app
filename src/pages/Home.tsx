@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../components/Navbar/Navbar';
 import backgroundImage from '../assets/background.jpg';
 import SearchLocationInput from '../components/SearchLocationInput/SearchLocationInput';
 

@@ -1,6 +1,5 @@
 import { AnyAction } from 'redux';
 import { CurrentWeather } from '../../interfaces/current-weather';
-import { LocationWeatherInformation } from '../../interfaces/location-weather-info';
 import favouriteLocationsReducer from './reducer';
 import currentLocationReducer from './reducer';
 import { RecentlyViewedType, RECENTLY_VIEWED_INITIAL_STATE } from './type';

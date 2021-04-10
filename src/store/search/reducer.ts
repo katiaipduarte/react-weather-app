@@ -7,7 +7,7 @@ type SearchReducer = {
   payload?: any;
 };
 
-const getSelectedLocation = (searchTerm: string, locations: Location[]): Location => {
+export const getSelectedLocation = (searchTerm: string, locations: Location[]): Location => {
   const separate = searchTerm.split(', ');
   const city = separate[0];
   const country = separate.length === 1 ? '' : separate[1];

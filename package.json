@@ -7,7 +7,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "coverage": "react-scripts test --coverage",
+    "coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint */**/*.{ts,tsx} --quiet --fix",
     "format": "prettier --config ./.prettierrc --write \"*/**/*{.ts,.tsx,.js}\"",
@@ -57,6 +57,14 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "src/styles",
+      "src/interfaces",
+      "src/serviceWorker.ts",
+      "src/setupTests.ts"
+    ]
   },
   "browserslist": {
     "production": [
