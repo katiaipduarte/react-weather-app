@@ -13,6 +13,7 @@ import LocationProvider from '../lib/location-provider';
 import { Location } from '../interfaces/location';
 import Loader from 'react-loader-spinner';
 import { CurrentWeather } from '../interfaces/current-weather';
+import { useHistory } from 'react-router-dom';
 
 type Props = {
   match: {
@@ -25,6 +26,7 @@ type Props = {
 
 const City = ({ match }: Props) => {
   const { getWeather } = WeatherProvider();
+  const history = useHistory();
 
   const searchState = useSelector((state: GlobalState) => state.searchState);
   const locations = useSelector((state: GlobalState) => state.recentlyViewedState);
@@ -47,6 +49,10 @@ const City = ({ match }: Props) => {
         .then((response: Location) => {
           setLocation(response);
           getWeatherInformation(response.lat, response.lon);
+
+          if (match.params.country !== response.country) {
+            history.push(`/${match.params.city}/${response.country.replace(/\s+/g, '-').toLowerCase()}`);
+          }
         });
     } else {
       getWeatherInformation(searchState.searchedResult.lat, searchState.searchedResult.lon);

@@ -37,7 +37,7 @@ const LocationProvider = () => {
   };
 
   const getLocationByName = async (city: string, country: string): Promise<Location> => {
-    return await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=5&offset=0&namePrefix=${city}`, {
+    return await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?offset=0&namePrefix=${city}`, {
       method: 'GET',
       headers: {
         'x-rapidapi-key': GEO_DB_CITIES_KEY,
