@@ -45,12 +45,12 @@ const City = ({ match }: Props) => {
         searchState.searchedResult.country !== match.params.country)
     ) {
       LocationProvider()
-        .getLocationByName(match.params.city, match.params.country)
+        .getLocationByName(match.params.city.replace(/-/g, ' '), match.params.country.replace(/-/g, ' '))
         .then((response: Location) => {
           setLocation(response);
           getWeatherInformation(response.lat, response.lon);
 
-          if (match.params.country !== response.country) {
+          if (response.country !== '' && match.params.country !== response.country.replace(/\s+/g, '-').toLowerCase()) {
             history.push(`/${match.params.city}/${response.country.replace(/\s+/g, '-').toLowerCase()}`);
           }
         });
