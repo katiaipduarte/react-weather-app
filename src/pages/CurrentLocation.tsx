@@ -25,15 +25,25 @@ const CurrentLocation = () => {
   }, []);
 
   const fetchCurrentLocation = (): void => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const coords: Location = { city: '', country: '', lat: position.coords.latitude, lon: position.coords.longitude };
-      LocationProvider().getLocationByCoords(position.coords.latitude, position.coords.longitude);
-      dispatch(updateCurrentGeoLocation(coords));
-      getWeather(position.coords.latitude, position.coords.longitude).then((weather: Weather) => {
-        dispatch(updateCurrentLocationWeather(weather));
-        setWeather(weather);
-        dispatch(recentlyViewed(treatDataToFavourite()));
-      });
+    navigator.geolocation.watchPosition(success, error);
+  };
+
+  const success = (position: any): void => {
+    const coords: Location = { city: '', country: '', lat: position.coords.latitude, lon: position.coords.longitude };
+    LocationProvider().getLocationByCoords(position.coords.latitude, position.coords.longitude);
+    dispatch(updateCurrentGeoLocation(coords));
+    getWeather(position.coords.latitude, position.coords.longitude).then((weather: Weather) => {
+      dispatch(updateCurrentLocationWeather(weather));
+      setWeather(weather);
+      dispatch(recentlyViewed(treatDataToFavourite()));
+    });
+  };
+
+  const error = (): void => {
+    getWeather(currLocation.location.lat, currLocation.location.lon).then((weather: Weather) => {
+      dispatch(updateCurrentLocationWeather(weather));
+      setWeather(weather);
+      dispatch(recentlyViewed(treatDataToFavourite()));
     });
   };
 
