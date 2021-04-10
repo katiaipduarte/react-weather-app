@@ -43,10 +43,18 @@ describe('<FavouriteButton /> component Unit Test', () => {
     expect(component.find('.favourite-btn').get(0).props.style.display).toEqual('flex');
   });
 
-  it('should change button visibility on click', () => {
+  it('should favourite on click', () => {
     expect(component.find('.favourite-btn').get(0).props.style.display).toEqual('flex');
     component.find('.favourite-btn').at(0).simulate('click');
     expect(component.find('.favourite-btn').get(0).props.style.display).toEqual('none');
     expect(component.find('.unfavourite-btn').get(0).props.style.display).toEqual('flex');
+  });
+
+  it('should unfavourite on click', () => {
+    expect(component.find('.unfavourite-btn').get(0).props.style.display).toEqual('flex');
+    component.find('.unfavourite-btn').at(0).simulate('click');
+
+    expect(component.find('.unfavourite-btn').get(0).props.style.display).toEqual('none');
+    expect(component.find('.favourite-btn').get(0).props.style.display).toEqual('flex');
   });
 });
