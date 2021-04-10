@@ -78,8 +78,9 @@ my-app/
     styles/
       index.ts
     utils/
+    App.tsx
     index.css
-    index.js
+    index.tsx
 ```
 
 For the project to build, **these files must exist with exact filenames**:
