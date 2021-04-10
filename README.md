@@ -41,6 +41,7 @@ This project is connected to 3 external API.
 ## Future Work
 
 [ ] Add more unit tests and integration ones<br>
+[ ] Add page transition loader<br>
 [ ] Have just one API to deal with locations and coordinates<br>
 [ ] Add authentication<br>
 [ ] Connect the website to a database, so we can save the favourites for each user (currently done via cookies)<br>
