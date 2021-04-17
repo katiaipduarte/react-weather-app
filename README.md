@@ -1,4 +1,4 @@
-# react-weather-app
+# React Weather App
 
 Welcome to my Weather App, where you can enter a location to fetch the current weather or see the weather in you current location. You can also add a new city to the favourites, and also delete it.
 
